@@ -26,19 +26,19 @@ def draw_clock(im,
     h_pos = complex(0, 1) * complex(math.cos(theta_h), math.sin(theta_h))
     m_pos = complex(0, 1) * complex(math.cos(theta_m), math.sin(theta_m))
 
-    H_LENGTH = 100
-    M_LENGTH = 150
-    draw.line((200, 200, h_pos.real * H_LENGTH + 200, h_pos.imag * H_LENGTH + 200), fill=color, width=8)
-    draw.line((200, 200, m_pos.real * M_LENGTH + 200, m_pos.imag * M_LENGTH + 200), fill=color, width=8)
+    H_LENGTH = 120
+    M_LENGTH = 180
+    draw.line((200, 200, h_pos.real * H_LENGTH + 200, h_pos.imag * H_LENGTH + 200), fill=color, width=15)
+    draw.line((200, 200, m_pos.real * M_LENGTH + 200, m_pos.imag * M_LENGTH + 200), fill=color, width=15)
     draw.ellipse((190, 190, 210, 210), fill=color)
     im = im.rotate(180)
     return im
 
 
 if __name__ == '__main__':
-    img_path = Path("./imgs/4KsSLxB9_400x400.jpg")
+    img_path = Path("./imgs/base.jpg")
     im = Image.open(img_path)
 
     now = datetime.datetime.now(pytz.timezone('Asia/Tokyo'))
-    im = draw_clock(im, now, "pink")
+    im = draw_clock(im, now, "red")
     im.save("example.png")
